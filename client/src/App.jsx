@@ -4,18 +4,14 @@ import {
   Route,
   RouterProvider,
 } from "react-router-dom";
-
 import "./App.css";
-
 import {
   StyledEngineProvider,
   ThemeProvider,
   createTheme,
   responsiveFontSizes,
 } from "@mui/material/styles";
-import RootLayout from "./routes/RootLayout";
-import ProductsList from "./pages/productList/ProductsList";
-import ProductDetail from "./pages/productDetail/ProductDetail";
+import { router } from "./routes/Routes";
 
 let theme = createTheme({
   typography: {
@@ -39,17 +35,6 @@ let theme = createTheme({
   },
 });
 theme = responsiveFontSizes(theme);
-
-const router = createBrowserRouter(
-  createRoutesFromElements(
-    <Route>
-      <Route path="/" element={<RootLayout />}>
-        <Route index element={<ProductsList />} />
-        <Route path="single-product/:id" element={<ProductDetail />} />
-      </Route>
-    </Route>
-  )
-);
 
 function App() {
   return (
